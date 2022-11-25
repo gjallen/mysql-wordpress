@@ -15,10 +15,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfsclaim
+  name: nfsclaim-wp
   labels:
     app: wordpress
 spec:
+ # storageClassName: nfs
   accessModes:
     - ReadWriteOnce
   resources:
@@ -64,4 +65,4 @@ spec:
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
-          claimName: wp-pv-claim
+          claimName: nfsclaim-wp

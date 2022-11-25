@@ -15,10 +15,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfsclaim
+  name: nfsclaim-mysql
   labels:
     app: wordpress
 spec:
+#  storageClassName: nfs
   accessModes:
     - ReadWriteOnce
   resources:
@@ -62,4 +63,4 @@ spec:
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: nfsclaim-mysql
